@@ -1,7 +1,12 @@
+/* Attribution */
 .attribution {
+    position: absolute;
+    bottom: 10px;
+    left: center;
+
     font-size: 11px;
     text-align: center;
-  }
+}
 
 .attribution a {
     color: hsl(228, 45%, 44%);
@@ -14,20 +19,19 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    
-    font-size: 15px;
-    font-family: 'Spartan', sans-serif;
-}
-
 h1 {
+    font-size: 3rem;
+    line-height: 1;
     color: hsl(300, 43%, 22%);
+
+    margin-bottom: 1rem;
+    width: 85%;
 }
 
 p {
     color: hsl(303, 10%, 53%);
     line-height: 1.5;
+    font-weight: 500;
 }
 
 i {
@@ -35,41 +39,220 @@ i {
     margin-right: 0.5rem;
 }
 
-.top-flexcontainer {
+body {
+    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 50%;
+    font-size: 15px;
+    font-family: 'Spartan', sans-serif;
+}
 
-    background: url("../images/bg-pattern-top-desktop.svg") no-repeat top left/cover;
+.container {
+    max-width: 1200px;
+    margin: 0 3rem;
+    overflow: hidden;
+}
+
+/* bg-images */
+.bg-top,
+.bg-bottom {
+    position: absolute;
+    width: 900px;
+    z-index: -1;
+}
+
+.bg-top {
+    top: 0;
+    left: 0;
+}
+
+.bg-bottom {
+    bottom: 0;
+    left: 400px;
+}
+
+/* Top container */
+.container__top {
+    display: flex;
+    align-items: flex-start;
+
+    margin-bottom: -1rem;
+}
+
+.container__top div p {
+    width: 80%;
 }
 
 .child {
     flex: 1;
+    padding: 4rem 0;
 }
 
-.heading {
-    padding: 4rem;
+.child:first-child {
+    width: 88%;
 }
-
 
 .ratings__inner {
-    width: 400px;
+    width: 450px;
+    float: right;
+    display: flex;
+
     padding: 1rem;
+    padding-left: 2rem;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     background: hsl(300, 24%, 96%);
-
     color: hsl(300, 43%, 22%);
     font-weight: 700;
 }
 
+.ratings__inner:nth-child(1) {
+    margin-right: 6rem;
+}
+
 .ratings__inner:nth-child(2) {
-    margin-left: 2rem;
+    margin-right: 3rem;
 }
 
-.ratings__inner:nth-child(3) {
-    margin-left: 4rem;
+/* Bottom container */
+.container__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
 }
 
+.box {
+    min-height: 240px;
+    max-width: 380px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding: 2rem;
+    background-color: hsl(300, 43%, 22%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 8px;
+}
+
+.box__heading {
+    display: flex;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.profile-picture {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    margin-left: 1.5rem;
+}
+
+.box>p {
+    color: hsl(0, 0%, 100%);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.box:nth-child(2) {
+    margin-top: 2rem;
+}
+
+.box:nth-child(3) {
+    margin-top: 4rem;
+}
+
+.box__heading p {
+    color: hsl(333, 30%, 50%);
+}
+
+/* Mobile */
+@media(max-width: 900px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .bg-top,
+    .bg-bottom {
+        position: absolute;
+        width: 400px;
+    }
+
+    .bg-bottom {
+        visibility: hidden;
+        /* bottom: 0;
+        left: 0;
+        background: lightblue; */
+    }
+
+    .container__top {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 0;
+        margin-top: 3rem;
+        text-align: center;
+    }
+
+    .container__top div p {
+        width: 100%;
+    }
+
+    .child {
+        padding: 1rem 0;
+    }
+
+    .container__bottom {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .ratings {
+        margin-bottom: 1.5rem;
+    }
+
+    .ratings__inner {
+        width: 100%;
+        float: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ratings__inner_icons {
+        margin-bottom: 0.7rem;
+    }
+
+    .box:nth-child(2),
+    .box:nth-child(3) {
+        margin-top: 0;
+    }
+
+    .box__heading {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Tablet */
+@media(min-width: 445px) and (max-width: 900px) {
+
+    .ratings {
+        width: 380px;
+    }
+}
